@@ -1842,6 +1842,3 @@ void main()
     }
     getch();
 }
-
-
-
