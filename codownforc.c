@@ -2418,4 +2418,1054 @@ void main()
             
             
             
+// 71. Program to check Niven number (Harshad number).
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, d, a, sum = 0;
+    clrscr();
+    printf("Enter the number : ");
+    scanf("%d", &n);
+
+    a = n;
+
+    while (a > 0)
+    {
+        d = a % 10;
+        sum = sum + d;
+        a = a / 10;
+    }
+
+    if (n % sum == 0)
+        printf("\nThe number is Niven Number.");
+    else
+        printf("\nThe number is not a Niven Number.");
+    getch();
+}
+
             
+            
+// 72. Program to check whether the number is palindrome or not.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, rev = 0, temp;
+    clrscr();
+    printf("Enter a number : ");
+    scanf("%d", &n);
+
+    temp = n;
+
+    while (temp != 0)
+    {
+        rev = rev * 10;
+        rev = rev + temp % 10;
+        temp = temp / 10;
+    }
+
+    if (n == rev)
+        printf("\n%d is palindrome number.", n);
+    else
+        printf("\n%d is not palindrome number.", n);
+    getch();
+}
+
+            
+            
+// 73. Program to check perfect number.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+ int n, i = 1, sum = 0;
+ clrscr();
+ printf("Enter a number : ");
+ scanf("%d", &n);
+
+/*The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6.*/
+
+ while (i < n)
+ {
+  if (n % i == 0)
+  {
+   sum = sum + i;
+  }
+  i++;
+ }
+
+ if (sum == n)
+ {
+  printf("\n%d is a perfect number.", i);
+ }
+ else
+ {
+  printf("\n%d is not a perfect number.", i);
+ }
+ getch();
+}
+
+            
+            
+// 74. Program to find the square root of a number.
+
+#include<math.h>
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    double num, result;
+    clrscr();
+    printf("Enter number : ");
+    scanf("%lf", &num);
+    result = sqrt(num);
+    printf("Square root of %lf is %lf.", num, result);
+    getch();
+}
+
+            
+            
+// 75. Program to print sum of 'n' prime numbers.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, i = 3, count, c, sum = 2;
+    clrscr();
+    printf("Enter total number of prime numbers for addition : ");
+    scanf("%d", &n);
+
+    if (n >= 1)
+    {
+        printf("\nFirst %d prime numbers are :", n);
+        printf("\n2 ");
+    }
+    for (count = 2; count <= n;)
+    {
+        for (c = 2; c <= i - 1; c++)
+        {
+            if (i % c == 0)
+                break;
+        }
+        if (c == i)
+        {
+            sum = sum + i;
+            printf("%d ", i);
+            count++;
+        }
+        i++;
+    }
+    printf("\nSum : %d", sum);
+    getch();
+}
+
+            
+            
+// 76. Program to print sum of factorial series 1/1! + 2/2! +...1/N!
+
+#include<stdio.h>
+#include<conio.h>
+
+double sumseries(double);
+
+void main()
+{
+    double number, sum;
+    clrscr();
+
+    printf("Enter the number : ");
+    scanf("%lf", &number);
+    sum = sumseries(number);
+
+    printf("\nSum of the above series = %lf ", sum);
+    
+    getch();
+}
+
+double sumseries(double m)
+{
+    double sum2 = 0, f = 1, i;
+    for (i = 1; i <= m; i++)
+    {
+        f = f * i;
+        sum2 = sum2 + (i / f);
+
+        if (i == m)
+        {
+            printf("%.2lf / %.2lf = %lf", i, f, sum2);
+        }
+        else
+        {
+            printf("%.2lf / %.2lf + \n", i, f);
+        }
+    }
+    return(sum2);
+}
+
+            
+            
+// 77. Program to calculate the sum of 'n' terms in Taylor series.
+
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+
+void main()
+{
+    int x, i;
+    int fact = 1, n;
+    float sum = 0;
+    clrscr();
+    printf("Enter the value of x : ");
+    scanf("%d", &x);
+    printf("Enter the number of terms : ");
+    scanf("%d", &n);
+
+    for (i = 1; i < n; i++)
+    {
+        fact = fact * i;
+        sum = sum + (pow(x, i) / fact);
+    }
+    sum = sum + 1;
+    printf("The sum of taylor series is : ");
+    printf("%f", sum);
+    getch();
+}
+
+            
+
+// 78. Program to swap two numbers without using third variable.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int x = 10, y = 5;
+    clrscr();
+    printf("Enter x : ");
+    scanf("%d", &x);
+    printf("Enter y : ");
+    scanf("%d", &y);
+
+    printf("\nBefore Swapping : \n x = %d \n y = %d", x, y);
+
+    // Code to swap x and y
+    x = x + y;
+    y = x - y;
+    x = x - y;
+
+    printf("\nAfter Swapping : \n x = %d \n y = %d", x, y);
+    getch();
+}
+
+            
+            
+// 79. Program to swap two numbers using bitwise XOR.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    long i, k;
+    clrscr();
+    printf("Enter two integers : \n");
+    scanf("%ld %ld", &i, &k);
+
+    printf("\n Before swapping i : %ld and k : %ld", i, k);
+    i = i ^ k;
+    k = i ^ k;
+    i = i ^ k;
+    printf("\nAfter swapping i : %ld and k : %ld", i, k);
+    getch();
+}
+
+            
+            
+// 80. Program to swap two numbers using pointer.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int a, b;
+    int *ptra, *ptrb, *temp;
+    clrscr();
+    printf("Enter a : ");
+    scanf("%d", &a);
+    printf("Enter b : ");
+    scanf("%d", &b);
+
+    printf("\nBefore swapping : a : %d, b : %d", a, b);
+
+    ptra = &a;
+    ptrb = &b;
+
+    temp = ptra;
+    *ptra = *ptrb;
+    *ptrb = *temp;
+
+    printf("\nAfter swapping : a : %d, b : %d", a, b);
+    getch();
+}
+
+            
+            
+// 81. Program to add two numbers using pointer.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int first, second, *p, *q, sum;
+    clrscr();
+    printf("Enter two integers : \n");
+    scanf("%d %d", &first, &second);
+
+    p = &first;
+    q = &second;
+
+    sum = *p + *q;
+
+    printf("\nSum of entered numbers : %d", sum);
+    getch();
+}
+
+            
+            
+// 82. Program to add first and last digit of a number.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int input, firstNum, lastNum;
+    clrscr();
+
+    printf("Enter number : ");
+    scanf("%d", &input);
+
+    lastNum = input % 10;
+    firstNum = input;
+
+    while (firstNum >= 10)
+        firstNum /= 10;
+
+    printf("\nAddition of first and last number : %d + %d = %d",
+           firstNum, lastNum, firstNum + lastNum);
+    getch();
+}
+
+            
+            
+// 83. Program to find area of triangle using Heron's formula.
+
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+
+void main()
+{
+    double a, b, c, s, area;
+    clrscr();
+    printf("\nEnter the sides of triangle : \n");
+    scanf("%lf%lf%lf", &a, &b, &c);
+
+    s = (a + b + c) / 2;
+    area = sqrt(s * (s - a) * (s - b) * (s - c));
+
+    printf("\nArea of triangle using Heron's Formula : %.2lf", area);
+    getch();
+}
+
+            
+            
+// 84. Program to convert Binary to Decimal.
+
+#include<stdio.h>
+#include<math.h>
+#include<conio.h>
+
+int binary_decimal(int n);
+
+void main()
+{
+    int n;
+    char c;
+    clrscr();
+    printf("Enter Binary number :  ");
+    scanf("%d", &n);
+    printf("%d in binary = %d in decimal", n, binary_decimal(n));
+    getch();
+}
+
+//Function to convert binary to decimal.
+
+int binary_decimal(int n)
+{
+    int decimal = 0, i = 0, rem;
+    while (n != 0)
+    {
+        rem = n % 10;
+        n /= 10;
+        decimal += rem * pow(2, i);
+        ++i;
+    }
+    return decimal;
+}
+
+            
+            
+// 85. Program to convert Decimal numbers to Binary.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int n, c, k;
+    clrscr();
+    printf("Enter a decimal number : ");
+    scanf("%d", &n);
+
+    printf("\n%d in binary number system is : ", n);
+
+    for (c = 31; c >= 0; c--)
+    {
+        k = n >> c;
+        if (k & 1)
+        {
+            printf("1");
+        }
+        else
+        {
+            printf("0");
+        }
+    }
+
+    printf("\n");
+    getch();
+}
+
+            
+            
+// 86. Program to find f(x) by Lagrange's interpolation method.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    float x[10], y[10], temp = 1, f[10], sum, p;
+    int i, n, j, k = 0, c;
+    clrscr();
+
+    printf("How many record you will enter : ");
+    scanf("%d", &n);
+    for (i = 0; i < n; i++)
+    {
+        printf("\n\nenter the value of x%d: ", i);
+        scanf("%f", &x[i]);
+
+        printf("\n\nEnter the value of f(x%d): ", i);
+        scanf("%f", &y[i]);
+    }
+
+    printf("\n\nEnter X for finding f(x): ");
+    scanf("%f", &p);
+
+    for (i = 0; i < n; i++)
+    {
+        temp = 1;
+        k = i;
+        for (j = 0; j < n; j++)
+        {
+            if (k == j)
+            {
+                continue;
+            }
+            else
+            {
+                temp = temp * ((p - x[j]) / (x[k] - x[j]));
+            }
+        }
+        f[i] = y[i] * temp;
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        sum = sum + f[i];
+    }
+
+    printf("\n\nf(%.1f) = %f ", p, sum);
+    getch();
+}
+
+            
+            
+// 87. Program to check the leap year.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int year;
+    clrscr();
+    printf("Enter a year : ");
+    scanf("%d", &year);
+
+    if (year % 400 == 0)
+        printf("\n%d is a leap year.", year);
+    else if (year % 100 == 0)
+        printf("\n%d is not a leap year.", year);
+    else if (year % 4 == 0)
+        printf("\n%d is a leap year.", year);
+    else
+        printf("%d is not a leap year.", year);
+    getch();
+}
+
+            
+            
+// 88. Program to find nCr & nPr.
+
+#include<stdio.h>
+#include<conio.h>
+
+long factorial(int);
+
+long find_ncr(int, int);
+
+long find_npr(int, int);
+
+void main()
+{
+    int n, r;
+    long ncr, npr;
+    clrscr();
+
+    printf("Enter the value of n and r : \n");
+    scanf("%d %d", &n, &r);
+
+    ncr = find_ncr(n, r);
+    npr = find_npr(n, r);
+
+    printf("%dC%d = %ld\n", n, r, ncr);
+    printf("%dP%d = %ld\n", n, r, npr);
+    getch();
+}
+
+long find_ncr(int n, int r)
+{
+
+    long result;
+
+    result = factorial(n) / (factorial(r) * factorial(n - r));
+
+    return result;
+}
+
+long find_npr(int n, int r)
+{
+
+    long result;
+
+    result = factorial(n) / factorial(n - r);
+
+    return result;
+}
+
+long factorial(int n)
+{
+
+    int c;
+    long result = 1;
+
+    for (c = 1; c <= n; c++)
+        result = result * c;
+
+    return (result);
+}
+
+            
+            
+// 89. Program for Newton Raphson General.
+
+#include<stdio.h>
+#include<math.h>
+
+int user_power, i = 0, cnt = 0, flag = 0;
+int coef[10] = {0};
+float x1 = 0, x2 = 0, t = 0;
+float fx1 = 0, fdx1 = 0;
+
+int main()
+{
+    printf("PROGRAM FOR NEWTON RAPHSON GENERAL");
+
+    printf("\nEnter the total no. of power : ");
+    scanf("%d", &user_power);
+
+    for (i = 0; i <= user_power; i++)
+    {
+        printf("\nx^%d : ", i);
+        scanf("%d", &coef[i]);
+    }
+
+    printf("\n");
+
+    printf("\n\nThe Polynomial is ");
+
+    //printing coeff.
+    for (i = user_power; i >= 0; i--)
+    {
+        printf("%dx^%d", coef[i], i);
+    }
+
+    printf("\n\nIntial x1 -> ");
+    scanf("%f", &x1);
+
+    printf("Iteration\tX1\tFX1\tF'X1");
+
+    do
+    {
+        cnt++;
+        fx1 = fdx1 = 0;
+        for (i = user_power; i >= 1; i--)
+        {
+            fx1 += coef[i] * (pow(x1, i));
+        }
+
+        fx1 += coef[0];
+
+        for (i = user_power; i >= 0; i--)
+        {
+            fdx1 += coef[i] * (i * pow(x1, (i - 1)));
+        }
+
+        t = x2;
+        x2 = (x1 - (fx1 / fdx1));
+        x1 = x2;
+
+        printf("\n\t%d\t%.3f\t%.3f\t%.3f ", cnt, x2, fx1, fdx1);
+
+    }
+    while ((fabs(t - x1)) >= 0.0001);
+
+    printf("\n\nThe root of equation is %f", x2);
+
+    return 0;
+}
+
+            
+            
+// 90. Program to calculate the sum of even numbers from 1 to n.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int sum = 0, n;
+    clrscr();
+
+    printf("Enter the number : ");
+    scanf("%d", &n);
+
+    // Using Math formula
+    // (n/2)((n / 2) + 1)
+    sum = ((n / 2) * ((n / 2) + 1));
+
+    printf("Sum of even numbers from 1 to %d : %d", n, sum);
+    getch();
+}
+
+            
+            
+// 91. Simpson 1/3 rule.
+
+#include<stdio.h>
+
+float f(float x)
+{
+    return (1 / (1 + x));
+}
+
+void main()
+{
+    int i, n;
+    float x0, xn, h, y[20], so, se, ans, x[20];
+    clrscr();
+
+    printf("\nEnter values of x0,xn,h: ");
+    scanf("%f%f%f", &x0, &xn, &h);
+    n = (xn - x0) / h;
+    if (n % 2 == 1)
+    {
+        n = n + 1;
+    }
+
+    h = (xn - x0) / n;
+
+    printf("\nRefined value of n and h are:%d and %f\n", n, h);
+    printf("\n Y values: \n");
+
+    for (i = 0; i <= n; i++)
+    {
+        x[i] = x0 + i * h;
+        y[i] = f(x[i]);
+        printf("\n %f\n", y[i]);
+    }
+
+    so = 0;
+    se = 0;
+    for (i = 1; i < n; i++)
+    {
+        if (i % 2 == 1)
+        {
+            so = so + y[i];
+        }
+        else
+        {
+            se = se + y[i];
+        }
+
+    }
+    ans = h / 3 * (y[0] + y[n] + 4 * so + 2 * se);
+    printf("\nFinal integration is %f", ans);
+    getch();
+}
+
+            
+            
+// 92. Program to add two strings without using concat() function.
+
+#include<stdio.h>
+#include<string.h>
+
+void concat(char[], char[]);
+
+void main()
+{
+    char s1[50], s2[30];
+    clrscr();
+    printf("\nEnter String 1 : ");
+    gets(s1);
+    printf("\nEnter String 2 : ");
+    gets(s2);
+
+    concat(s1, s2);
+
+    printf("\nConcated string is : %s", s1);
+    getch();
+}
+
+void concat(char s1[], char s2[])
+{
+    int i, j;
+
+    i = strlen(s1);
+
+    for (j = 0; s2[j] != '\0'; i++, j++)
+    {
+        s1[i] = s2[j];
+    }
+
+    s1[i] = '\0';
+}
+
+            
+            
+// 93. Program to check vowels in string.
+
+#include<stdio.h>
+
+int count_vowels(char []);
+
+int check_vowel(char);
+
+void main()
+{
+    char array[100];
+    int c;
+    clrscr();
+    printf("Enter a string : ");
+    gets(array);
+
+    c = count_vowels(array);
+
+    printf("\nNumber of vowels in %s : %d", array, c);
+    getch();
+}
+
+int count_vowels(char a[])
+{
+    int count = 0, c = 0, flag;
+    char d;
+
+    do
+    {
+        d = a[c];
+
+        flag = check_vowel(d);
+
+        if (flag == 1)
+            count++;
+
+        c++;
+    } while (d != '\0');
+    return count;
+}
+
+int check_vowel(char a)
+{
+    if (a >= 'A' && a <= 'Z')
+    {
+        // Converting to lower case
+        a = a + 'a' - 'A';
+    }
+    
+    if (a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u')
+        return 1;
+    return 0;
+}
+
+            
+            
+// 94. Program to compare two strings.
+
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    char a[100], b[100];
+    clrscr();
+    printf("\nEnter the first string : ");
+    gets(a);
+    printf("\nEnter the second string : ");
+    gets(b);
+
+    if (strcmp(a, b) == 0)
+        printf("\nEntered strings are equal.");
+    else
+        printf("\nEntered strings are not equal.");
+    getch();
+}
+
+            
+            
+// 95. Program to compare strings without using strcmp() function.
+
+#include<stdio.h>
+
+int stringCompare(char[], char[]);
+
+void main()
+{
+    char str1[100], str2[100];
+    int compare;
+    clrscr();
+    printf("Enter first string : ");
+    scanf("%s", str1);
+    printf("Enter second string : ");
+    scanf("%s", str2);
+
+    compare = stringCompare(str1, str2);
+
+    if (compare == 1)
+        printf("\nBoth strings are equal.");
+    else
+        printf("\nBoth strings are not equal.");
+    getch();
+}
+
+int stringCompare(char str1[], char str2[])
+{
+    int i = 0, flag = 0;
+
+    while (str1[i] != '\0' && str2[i] != '\0')
+    {
+        if (str1[i] != str2[i])
+        {
+            flag = 1;
+            break;
+        }
+        i++;
+    }
+
+    if (flag == 0 && str1[i] == '\0' && str2[i] == '\0')
+        return 1;
+    else
+        return 0;
+}
+
+            
+            
+// 96. Program to convert string from uppercase to lowercase.
+
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+
+void main()
+{
+    char str[20];
+    int i;
+    clrscr();
+
+    printf("Enter string : ");
+    gets(str);
+
+    for (i = 0; i <= strlen(str); i++)
+    {
+        if (str[i] >= 65 && str[i] <= 90)
+        {
+            str[i] = (char) (str[i] + 32);
+        }
+    }
+
+    printf("String in lowercase : %s", str);
+    getch();
+}
+
+            
+            
+// 97. Program to copy char array / copy string.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+void main()
+{
+    char source[] = "C program";
+    char destination[50];
+    clrscr();
+
+    strcpy(destination, source);
+
+    printf("Source string: %s\n", source);
+    printf("Destination string: %s\n", destination);
+    getch();
+}
+
+            
+            
+// 98. Program to copy string without using strcpy() function.
+
+#include<stdio.h>
+#include<conio.h>
+
+void strCopy(char[], char[]);
+
+void main()
+{
+
+    char str1[100], str2[100];
+
+    printf("Enter any string: ");
+    scanf("%s", str1);
+
+    strCopy(str1, str2);
+
+    printf("After copying: %s", str2);
+
+    getch();
+}
+
+void strCopy(char str1[], char str2[])
+{
+
+    int i = 0;
+
+    while (str1[i] != '\0')
+    {
+        str2[i] = str1[i];
+        i++;
+    }
+
+    str2[i] = '\0';
+
+}
+
+            
+            
+// 99. Program to count frequency of characters in a string.
+
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+
+void main()
+{
+    char str[1500];
+    int c = 0, count[26] = {0};
+    clrscr();
+
+    printf("Enter a string : ");
+    gets(str);
+
+    while (str[c] != '\0')
+    {
+
+        if (str[c] >= 'a' && str[c] <= 'z')
+            count[str[c] - 'a']++;
+        c++;
+    }
+
+    for (c = 0; c < 26; c++)
+    {
+        if (count[c] != 0)
+            printf("%c occurs %d times in the string.\n", c + 'a', count[c]);
+    }
+    getch();
+}
+
+            
+            
+// 100. Program to count total number of uppercase and lowercase in a string.
+
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+
+void main()
+{
+    int upper = 0, lower = 0;
+    char ch[80];
+    int i;
+    clrscr();
+
+    printf("Enter string : ");
+    gets(ch);
+
+    i = 0;
+    while (ch[i] != '\0')
+    {
+        //uppercase counter
+        if (ch[i] >= 'A' && ch[i] <= 'Z')
+        {
+            upper++;
+        }
+        
+        //lowercase counter
+        if (ch[i] >= 'a' && ch[i] <= 'z')
+        {
+            lower++;
+        }
+       
+        i++;
+    }
+
+    printf("\nUppercase Letters : %d", upper);
+    printf("\nLowercase Letters : %d", lower);
+
+    getch();
+}           
