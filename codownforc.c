@@ -1842,3 +1842,580 @@ void main()
     }
     getch();
 }
+
+            
+            
+/* 51. Triangle with only border
+
+#include<stdio.h>
+#include<conio.h>
+
+       *
+     *  *
+    *    *
+   *      *
+  *        *
+ *          *
+* * *  * * * *            */
+
+void drawTriangle(char border, char filler, int length)
+{
+    int start = 2;
+    int base = 4;
+    int i, sp, j, b;
+    for (i = start; i <= length; i++)
+    {
+        for (sp = 0; sp <= length - i; sp++)
+        {
+            printf(" ");
+        }
+        if (i > start)
+        {
+            printf("%c ", border);
+        }
+        if (i > start)
+        {
+            for (b = base; b <= i; b++)
+            {
+                printf("%c ", filler);
+            }
+        }
+        printf("%c \n", border);
+    }
+
+    for (j = base; j < length + base; j++)
+    {
+        printf("%c ", border);
+    }
+    printf("\n");
+}
+
+void main()
+{
+    int length = 6;
+    clrscr();
+    drawTriangle('*', ' ', length);
+    getch();
+}
+
+            
+            
+// 52. Program to accept number and print it's factorial.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+
+    int i, fact=1, n;
+    clrscr();
+
+    printf("Enter number : ");
+    scanf("%d", &n);
+
+    for(i=1; i<=n; i++)
+    {
+        fact = fact*i;
+    }
+    printf("Factorial is: %d", fact);
+    getch();
+}
+
+            
+            
+// 53. Program to accept number and print if it is prime number or not.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int i, n;
+clrscr();
+printf("Enter number : ");
+scanf("%d", &n);
+
+for(i=2; i<=n/2; i++)
+    {
+        if(n%i==0)
+        {
+            printf("Number is not Prime");
+            getch();
+            break;
+        }
+    }
+    printf("Number is Prime");
+    getch();
+}
+
+            
+            
+// 54. Program to print 'n' prime numbers.
+
+#include<stdio.h>
+#include<conio.h>
+#include<process.h>
+void main()
+{
+int i, j, flag=1, n;
+clrscr();
+printf("Enter number : ");
+scanf("%d", &n);
+
+for(i=2; i<=n; i++)
+{
+    flag=1;
+    for(j=2; j<=i/2; j++)
+    {
+        if(i%j==0)
+        {
+            flag=0;
+            break;
+        }
+    }
+    if(flag==1)
+    printf("%d\n", i);
+}
+getch();
+}
+
+            
+            
+// 55. Program to accept a number and print Fibonacci sequence.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int pre=1, cur=1, temp, i, n;
+//pre means previous number
+//cur means current number
+clrscr();
+printf("Enter number : ");
+scanf("%d", &n);
+printf("%d\t%d", pre, cur);
+
+for(i=3; i<=n; i++)
+{
+    temp = cur;
+    cur = pre + cur;
+    pre = temp;
+    printf("\t%d", cur);
+}
+getch();
+}
+
+            
+            
+// 56. Add 'n' numbers.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+   int n, sum=0, i, value;
+   clrscr();
+
+   printf("Enter total numbers you want to add : ");
+   scanf("%d", &n);
+
+   for (i=1; i<=n; i++)
+   {
+      printf("Enter number %d : ", i);
+      scanf("%d", &value);
+      sum = sum + value;
+   }
+
+   printf("Sum of entered numbers : %d", sum);
+   getch();
+}
+
+            
+            
+// 57. Add 'n' numbers using array.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, sum = 0, i, array[100];
+    clrscr();
+    printf("Enter total numbers you want to add : ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++)
+    {
+        printf("Enter number %d : ", i);
+        scanf("%d", &array[i]);
+        sum = sum + array[i];
+    }
+    printf("Sum : %d\n", sum);
+    getch();
+}
+
+            
+            
+// 58. Program to accept a number and add the digits of that number.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+ {
+ int n, sum = 0, remainder;
+ clrscr();
+
+ printf("Enter the number : ");
+ scanf("%d", &n);
+
+ while (n != 0) 
+ {
+  remainder = n % 10;
+  sum = sum + remainder;
+  n = n / 10;
+ }
+
+ printf("Sum of digits of entered number : %d", sum);
+ getch();
+}
+
+            
+            
+// 59. Program to accept a number and add the digits of that number using recursion.
+
+#include<stdio.h>
+#include<conio.h>
+
+int add_digits(int);
+
+void main()
+{
+    int n, result;
+    clrscr();
+    printf("Enter a number : ");
+    scanf("%d", &n);
+
+    result = add_digits(n);
+
+    printf("Sum : %d", result);
+    getch();
+}
+
+int add_digits(int n)
+{
+    static int sum = 0;
+    if (n == 0)
+    {
+        return 0;
+    }
+    sum = n % 10 + add_digits(n / 10);
+    return sum;
+}
+
+            
+            
+// 60. Average of numbers.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, i;
+    float sum=0, x, avg;
+    clrscr();
+    printf("Enter total Numbers : ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++)
+    {
+        printf("\nNumber %d : ", i );
+        scanf("%f", &x);
+        sum += x;
+    }
+    avg = sum / n;
+    printf("\nThe Average is : %0.2f", avg);    
+    getch();
+}
+
+            
+            
+// 61. Program to calculate Square of 'n' numbers.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, r, i, sqr=0;
+    clrscr();
+    printf("\nEnter the range : ");
+    scanf("%d", &r);
+
+    for (i = 1; i <= r; i++)
+    {
+        n = i;
+        sqr = n * n;
+        printf("\nSquare of %d is :  %d .", n, sqr);
+    }
+    getch();
+}
+
+            
+            
+// 62. Program to take an alphabet from user and check whether it is a vowel or not.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    char ch;
+    clrscr();
+    printf("Enter an alphabet : ");
+    scanf("%c", &ch);
+
+    if (ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U')
+        printf("%c is a vowel.", ch);
+    else
+        printf("%c is not a vowel.", ch);
+    getch();
+}
+
+            
+            
+// 63. Program to take two numbers and check whether they are amicable numbers or not.
+
+#include<stdio.h>
+#include<conio.h>
+
+//check function
+int check(int a, int b)
+{
+    int s = 0, i;
+    for (i = 1; i < a; i++)
+    {
+        if (a % i == 0)
+        {
+            s = s + i;
+        }
+    }
+
+    if (s == b)
+    {
+        s = 0;
+        for (i = 1; i < b; i++)
+        {
+            if (b % i == 0)
+            {
+                s = s + i;
+            }
+        }
+
+        if (s == a)
+            return 1;
+        else
+            return 0;
+    }
+    return 0;
+}
+
+void main()
+{
+    int a, b;
+    clrscr();
+    printf("Enter 1st number : ");
+    scanf("%d", &a);
+    printf("Enter 2nd number : ");
+    scanf("%d", &b);
+
+    if (check(a, b))
+    {
+        printf("\n%d and %d are Amicable Numbers.", a, b);
+    }
+    else
+    {
+        printf("\n%d and %d are not Amicable Numbers.", a, b);
+    }
+}
+
+            
+            
+// 64. Program to accept a number and print the factors of that number.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, i;
+    clrscr();
+    printf("Enter a number : ");
+    scanf("%d", &n);
+    printf("Factors of %d are : ", n);
+    for (i = 1; i <= n; ++i)
+    {
+        if (n % i == 0)
+            printf("\n%d ", i);
+    }
+    getch();
+}
+
+            
+            
+// 65. Program to accept two integer numbers and print the GCD(Greatest Common Divisor).
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int x, y, m, i;
+    clrscr();
+    printf("Enter 1st number : ");
+    scanf("%d", &x);
+    printf("Enter 2nd number : ");
+    scanf("%d", &y);
+
+    if (x > y)
+        m = y;
+    else
+        m = x;
+
+    for (i = m; i >= 1; i--)
+    {
+        if (x % i == 0 && y % i == 0)
+        {
+            printf("GCD of two number is : %d", i);
+            break;
+        }
+    }
+    getch();
+}
+
+            
+            
+// 66. Program to find power of number.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int base, expo;
+    int value = 1;
+    clrscr();
+    printf("Enter base number : ");
+    scanf("%d", &base);
+    printf("Enter exponent number : ");
+    scanf("%d", &expo);
+
+    while (expo != 0)
+    {
+        // value = value * base;
+        value *= base;
+        --expo;
+    }
+    printf("Answer : %d", value);
+    getch();
+}
+
+            
+            
+// 67. Program to calculate HCF & LCM.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int a, b, x, y, t, hcf, lcm;
+    clrscr();
+    printf("Enter two numbers : ");
+    scanf("%d%d", &x, &y);
+
+    a = x;
+    b = y;
+
+    while (b != 0)
+    {
+        t = b;
+        b = a % b;
+        a = t;
+    }
+
+    hcf = a;
+    lcm = (x * y) / hcf;
+
+    printf("\nHighest Common Factor of %d and %d : %d", x, y, hcf);
+    printf("\nLeast Common Multiple of %d and %d : %d", x, y, lcm);
+    getch();
+}
+
+            
+            
+// 68. Program to find largest among 3 numbers using ternary operator.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int a, b, c, big;
+    clrscr();
+    printf("Enter 3 numbers : ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    big = (a > b && a > c ? a : b > c ? b : c);
+    printf("\nThe biggest number is : %d", big);
+    getch();
+}
+
+            
+            
+//69. Program to find largest number of 'n' numbers.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, num, i;
+    int big;
+    clrscr();
+    printf("Enter total numbers : ");
+    scanf("%d", &n);
+
+    printf("Number %d : ", 1);
+    scanf("%d", &big);
+
+    for (i = 2; i <= n; i++)
+    {
+        printf("Number %d : ", i);
+        scanf("%d", &num);
+
+        if (big < num)
+            big = num;
+    }
+
+    printf("Largest number is : %d", big);
+    getch();
+}
+
+            
+            
+//70. Program to check whether the number is neon number or not.
+
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int n, sq, i, sum = 0;
+    clrscr();
+    printf("Enter the number : ");
+    scanf("%d", &n);
+
+    sq = n * n;
+
+    for (i = sq; i > 0; i = i / 10)
+        sum = sum + i % 10;
+
+    if (sum == n)
+        printf("%d is a neon number.", n);
+    else
+        printf("%d is not a neon number.", n);
+    getch();
+}       
+            
+            
+            
+            
