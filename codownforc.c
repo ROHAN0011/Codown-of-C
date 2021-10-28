@@ -3817,3 +3817,443 @@ void main()
 }      
             
             
+
+// 111. Program to arrange array numbers in ascending order.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int i, j, a, n, number[30];
+    clrscr();
+
+    printf("Enter total numbers : ");
+    scanf("%d", &n);
+    printf("\n Enter the numbers :\n");
+
+    for (i = 0; i < n; ++i)
+    {
+        scanf("%d", &number[i]);
+    }
+
+    for (i = 0; i < n; ++i)
+    {
+        for (j = i + 1; j < n; ++j)
+        {
+            if (number[i] > number[j])
+            {
+                a = number[i];
+                number[i] = number[j];
+                number[j] = a;
+            }
+        }
+    }
+
+    printf("The numbers arranged in ascending order are :\n");
+
+    for (i = 0; i < n; ++i)
+    {
+        printf("%d\n", number[i]);
+    }
+    getch();
+}
+
+            
+            
+// 112. Program to check whether the matrix is sparse matrix or not.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    static int array[10][10];
+    int i, j, m, n;
+    int counter = 0;
+    clrscr();
+
+    printf("Enter the order of the matix : ");
+    scanf("%d %d", &m, &n);
+    printf("\nEnter the co-efficients of the matix :\n");
+    for (i = 0; i < m; ++i)
+    {
+        for (j = 0; j < n; ++j)
+        {
+            scanf("%d", &array[i][j]);
+            if (array[i][j] == 0)
+            {
+                ++counter;
+            }
+        }
+    }
+    if (counter > ((m * n) / 2))
+    {
+        printf("The given matrix is sparse matrix \n");
+    }
+    else
+    {
+        printf("The given matrix is not a sparse matrix \n");
+    }
+    
+    printf("There are %d number of zeros", counter);
+    getch();
+}
+
+            
+            
+// 113.  Program to delete an element from array.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int array[100], position, c, n;
+    clrscr();
+
+    printf("Enter total number of elements in array : ");
+    scanf("%d", &n);
+
+    printf("\nEnter element %d : ", n);
+
+    for (c = 0; c < n; c++)
+        scanf("%d", &array[c]);
+
+    printf("\nEnter the location from where you wish to delete element : ");
+    scanf("%d", &position);
+
+    if (position >= n + 1)
+        printf("\nDeletion not possible.");
+    else
+    {
+        for (c = position - 1; c < n - 1; c++)
+            array[c] = array[c + 1];
+
+        printf("\nResultant array is :");
+
+        for (c = 0; c < n - 1; c++)
+            printf("\n%d", array[c]);
+    }
+    getch();
+}
+
+            
+            
+// 114. Program to delete given number from array.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int array[10];
+    int i, n, pos, element, found = 0;
+    clrscr();
+
+    printf("Enter total number of elements : ");
+    scanf("%d", &n);
+    printf("\nEnter the elements : \n");
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &array[i]);
+    }
+
+    printf("Input array elements are\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("\n%d", array[i]);
+    }
+
+    printf("\nEnter the element to be deleted : ");
+
+    scanf("%d", &element);
+
+    for (i = 0; i < n; i++)
+    {
+        if (array[i] == element)
+        {
+            found = 1;
+            pos = i;
+            break;
+        }
+    }
+
+    if (found == 1)
+    {
+        for (i = pos; i < n - 1; i++)
+        {
+            array[i] = array[i + 1];
+        }
+
+        printf("\nResultant array elements are : ");
+
+        for (i = 0; i < n - 1; i++)
+        {
+            printf("\n%d", array[i]);
+        }
+    }
+    else
+    {
+        printf("\nElement %d is not found in the array", element);
+    }
+    getch();
+}
+
+            
+            
+// 115. Program to calculate the determinant of 2×2 matrix.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int a[2][2], i, j;
+    long determinant;
+    clrscr();
+
+    printf("Enter the 4 elements of matrix  :\n");
+    for (i = 0; i < 2; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("\nThe matrix is : \n");
+    for (i = 0; i < 2; i++)
+    {
+        printf("\n");
+        for (j = 0; j < 2; j++)
+        {
+            printf("%d\t", a[i][j]);
+        }
+    }
+
+    determinant = a[0][0] * a[1][1] - a[1][0] * a[0][1];
+
+    printf("\nDeterminant of 2X2 matrix: %ld", determinant);
+
+    getch();
+}
+
+            
+            
+// 116. Program to calculate the determinant of 3×3 matrix.
+
+#include<stdio.h>
+#include<conio.h>
+ 
+void main()
+{
+    int a[3][3], i, j;
+    long determinant;
+    clrscr();
+
+    printf("Enter the 9 elements of matrix :\n");
+    for (i = 0; i < 3; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("\nThe matrix is :\n");
+    for (i = 0; i < 3; i++)
+    {
+        printf("\n");
+        for (j = 0; j < 3; j++)
+        {
+            printf("%d\t", a[i][j]);
+        }
+    }
+
+    determinant = a[0][0] * ((a[1][1] * a[2][2]) - (a[2][1] * a[1][2]))
+                  - a[0][1] * (a[1][0] * a[2][2] - a[2][0] * a[1][2])
+                  + a[0][2] * (a[1][0] * a[2][1] - a[2][0] * a[1][1]);
+
+    printf("\nDeterminant of 3X3 matrix : %ld", determinant);
+
+    getch();
+}
+
+            
+            
+// 117. Program to find Largest and Smallest number in array.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int a[50], size, i, largest, smallest;
+    clrscr();
+
+    printf("Enter the size of the array : ");
+    scanf("%d", &size);
+
+    for (i = 0; i < size; i++)
+    {
+        printf("Enter element %d in to the array : ", i);
+        scanf("%d", &a[i]);
+    }
+
+    largest = a[0];
+    for (i = 1; i < size; i++)
+    {
+        if (largest < a[i])
+        {
+            largest = a[i];
+        }
+    }
+    printf("Largest element : %d", largest);
+
+    smallest = a[0];
+    for (i = 1; i < size; i++)
+    {
+        if (smallest > a[i])
+        {
+            smallest = a[i];
+        }
+    }
+    printf("\nSmallest element : %d", smallest);
+    getch();
+}
+
+            
+            
+// 118. Program to reverse the array.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int size, i, j, a[100], b[100];
+    clrscr();
+
+    printf("Enter the size of array : ");
+    scanf("%d", &size);
+
+    for (i = 0; i < size; i++) 
+    {
+        printf("Enter element %d :", i);
+        scanf("%d", &a[i]);
+    }
+
+    /*
+     * Copying elements into array b starting from end of array a
+     */
+
+    for (i = size - 1, j = 0; i >= 0; i--, j++)
+        b[j] = a[i];
+
+    /*
+     * Copying reversed array into original.
+     * Here we are modifying original array, this is optional.
+     */
+
+    for (i = 0; i < size; i++)
+        a[i] = b[i];
+
+    printf("Reverse array is :\n");
+
+    for (i = 0; i < size; i++)
+        printf("%d\n", a[i]);
+
+    getch();
+}
+
+            
+            
+// 119. Program to insert an element in array.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int array[100], position, i, size, value;
+    clrscr();
+
+    printf("Enter size of array : ");
+    scanf("%d", &size);
+
+    for (i = 0; i < size; i++)
+    {
+        printf("Enter %d element : ", i);
+        scanf("%d", &array[i]);
+    }
+
+    printf("Enter the location where you wish to insert an element : ");
+    scanf("%d", &position);
+
+    printf("Enter the value to insert : ");
+    scanf("%d", &value);
+
+    for (i = size - 1; i >= position - 1; i--)
+    {
+        array[i + 1] = array[i];
+    }
+
+    array[position - 1] = value;
+
+    printf("\nResultant array is : ");
+
+    for (i = 0; i <= size; i++)
+    {
+        printf(" %d ", array[i]);
+    }
+
+    getch();
+}
+
+            
+            
+// 120. Program to sort array using Insertion sort
+
+#include<math.h> 
+#include<stdio.h> 
+void insertionSort(int arr[], int n) 
+{ 
+  int i, key, j; 
+  for (i = 1; i < n; i++) { 
+    key = arr[i]; 
+    j = i - 1; 
+    while (j >= 0 && arr[j] > key) { 
+      arr[j + 1] = arr[j]; 
+      j = j - 1; 
+    } 
+    arr[j + 1] = key; 
+  } 
+} 
+
+void printArray(int arr[], int n) 
+{ 
+  int i; 
+  for (i = 0; i < n; i++) 
+    printf("%d ", arr[i]); 
+  printf("\n"); 
+} 
+
+int main() 
+{ 
+  printf("\n\n Enter the number of data element to be sorted: ");
+   scanf(“%d”, &n);
+   printf("\n Enter element: ");
+   for(i=0; i<n; i++)
+   {
+      scanf(“%d”, &arr[i]);
+    }   
+  int n = sizeof(arr) / sizeof(arr[0]); 
+  insertionSort(arr, n); 
+  printf(“Sorted List: ”);
+  printArray(arr, n); 
+  return 0; 
+}   
+            
