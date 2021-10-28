@@ -3469,3 +3469,351 @@ void main()
 
     getch();
 }           
+
+            
+ 
+// 101. Program to calculate the length of string.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+void main()
+{
+    char a[100];
+    int length;
+    clrscr();
+    printf("\nEnter a string to calculate it's length : ");
+    gets(a);
+
+    length = strlen(a);
+
+    printf("\nLength of entered string is : %d", length);
+
+    getch();
+}
+
+            
+            
+// 102. Program to calculate the length of string without using strlen() function.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    char s[1000], i;
+    clrscr();
+
+    printf("Enter a string : ");
+    scanf("%s", s);
+
+
+    for (i = 0; s[i] != '\0'; ++i);
+
+    printf("Length of string : %d", i);
+    getch();
+}
+
+            
+            
+// 103. Program to check the palindrome of string.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+void main()
+{
+    char text[100];
+    int begin, middle, end, length = 0;
+    clrscr();
+
+    printf("Enter the string to check if it is a palindrome : \n");
+    gets(text);
+
+    while (text[length] != '\0')
+    {
+        length++;
+    }
+    end = length - 1;
+    middle = length / 2;
+
+    for (begin = 0; begin < middle; begin++)
+    {
+        if (text[begin] != text[end])
+        {
+            printf("\nString is not a palindrome.");
+            break;
+        }
+        end--;
+    }
+    if (begin == middle)
+        printf("\nString is Palindrome.");
+
+    getch();
+}
+
+            
+            
+// 104. Program to check the palindrome of word using array.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+void main()
+{
+    char word[100];
+    int length, counter;
+    clrscr();
+
+    printf("Enter a word : ");
+    scanf("%s", word);
+    length = strlen(word);
+    int flag = 1;
+
+    for (counter = 0; counter < length / 2 && flag; counter++)
+    {
+        if (word[counter] != word[length - counter - 1])
+        {
+            flag = 0;
+            break;
+        }
+    }
+    if (flag)
+    {
+        printf("\n%s is a palindrome.", word);
+    }
+    else
+    {
+        printf("\n%s is NOT a palindrome.", word);
+    }
+    getch();
+}
+
+            
+            
+// 105. Program to remove white space in string.
+
+#include<string.h>
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int i = 0, j = 0, len;
+    char buff[50];
+    clrscr();
+
+    printf("Enter String with white space : ");
+    gets(buff);
+
+    len = (int) strlen(buff);
+
+    while (i != len)
+    {
+        if (buff[i] != ' ')
+            buff[j++] = buff[i];
+        i++;
+    }
+    buff[j] = 0;
+
+    printf("\nYour String  is : %s.", buff);
+getch();
+}
+
+            
+            
+// 106. Program to reverse the string.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+char *strrev(char *str)
+{
+    char *p1, *p2;
+
+    if (!str || !*str)
+        return str;
+    for (p1 = str, p2 = str + strlen(str) - 1; p2 > p1; ++p1, --p2)
+    {
+        *p1 ^= *p2;
+        *p2 ^= *p1;
+        *p1 ^= *p2;
+    }
+    return str;
+}
+
+void main()
+{
+    char arr[100];
+    clrscr();
+
+    printf("\nEnter a string to reverse : ");
+    gets(arr);
+
+    strrev(arr);
+
+    printf("\nReverse of entered string is : %s", arr);
+
+    getch();
+}
+
+            
+            
+// 107. Program to reverse the string using pointer.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    char str_array[10000], *ptr;
+    int i, len;
+    clrscr();
+
+    printf("Enter a string : ");
+    gets(str_array);
+    ptr = str_array;
+
+    for (i = 0; i < 10000; i++)
+    {
+        if (*ptr == '\0')
+            break;
+        ptr++;
+    }
+
+    len = i;
+    ptr--;
+    printf("\nReversed String is : ");
+    for (i = len; i > 0; i--)
+    {
+        printf("%c", *ptr--);
+    }
+    getch();
+}
+
+            
+            
+// 108. Program to sort the strings.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+void main()
+{
+    int i, j, n;
+    char str[20][20], temp[20];
+    clrscr();
+
+    printf("Enter the number of string to be sorted : ");
+    scanf("%d", &n);
+
+    for (i = 0; i <= n; i++)
+        gets(str[i]);
+
+    for (i = 0; i <= n; i++)
+        for (j = i + 1; j <= n; j++)
+        {
+            if (strcmp(str[i], str[j]) > 0)
+            {
+                strcpy(temp, str[i]);
+                strcpy(str[i], str[j]);
+                strcpy(str[j], temp);
+            }
+        }
+
+    printf("\nSorted string :");
+    for (i = 0; i <= n; i++)
+    {
+        puts(str[i]);
+    }
+    getch();
+}
+
+// 109. Program to swap two strings.
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main()
+{
+    char str1[100], str2[100], *temp;
+    clrscr();
+
+    printf("Enter first string : ");
+    gets(str1);
+
+    printf("Enter second string : ");
+    gets(str2);
+
+    printf("\nBefore Swapping : \n");
+    printf("First string : %s\n", str1);
+    printf("Second string : %s\n", str2);
+
+    temp = (char *) malloc(100);
+
+    strcpy(temp, str1);
+    strcpy(str1, str2);
+    strcpy(str2, temp);
+
+    printf("\nAfter Swapping : \n");
+    printf("First string : %s\n", str1);
+    printf("Second string : %s\n", str2);
+    getch();
+}
+
+            
+            
+// 110. Program to add two matrix.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int m, n, c, d, first[10][10], second[10][10], sum[10][10];
+    clrscr();
+
+    printf("Enter the number of rows and columns of matrix :");
+    scanf("%d%d", &m, &n);
+    printf("\nEnter the elements of first matrix : \n");
+
+    for (c = 0; c < m; c++)
+    {
+        for (d = 0; d < n; d++)
+        {
+            scanf("%d", &first[c][d]);
+        }
+    }
+
+    printf("\nEnter the elements of second matrix : \n");
+
+    for (c = 0; c < m; c++)
+    {
+        for (d = 0; d < n; d++)
+        {
+            scanf("%d", &second[c][d]);
+        }
+    }
+
+    printf("\nSum of entered matrices : \n");
+
+    for (c = 0; c < m; c++)
+    {
+        for (d = 0; d < n; d++)
+        {
+            sum[c][d] = first[c][d] + second[c][d];
+            printf("%d\t", sum[c][d]);
+        }
+        printf("\n");
+    }
+    getch();
+}      
+            
+            
