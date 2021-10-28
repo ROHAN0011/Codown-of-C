@@ -4724,3 +4724,473 @@ int main() {
   }
   return 0;
 }            
+
+            
+            
+/* 131. Pattern
+
+5       5
+54     45
+543   345
+5432 2345
+543212345
+5432 2345
+543   345
+54     45
+5       5                     */
+
+#include <stdio.h>
+int main() 
+{
+  int i,j,n;
+  scanf("%d",&n);
+
+  for(i=n;i>=1;i--) {
+    for(j=n;j>=1;j--) {
+      if(j>=i)
+        printf("%d",j);
+      else
+        printf(" ");
+    }
+    for(j=2;j<=n;j++) {
+      if(j>=i)
+        printf("%d",j);
+      else
+        printf(" ");
+    }
+    printf("\n");
+  }
+
+//down
+  for(i=2;i<=n;i++) {
+    for(j=n;j>=1;j--) {
+      if(j>=i)
+        printf("%d",j);
+      else
+        printf(" ");
+    }
+    for(j=2;j<=n;j++) {
+      if(j>=i)
+        printf("%d",j);
+      else
+        printf(" ");
+    }
+    printf("\n");
+  }
+}
+
+            
+            
+/* 132. Pattern
+
+
+        @       @         
+      @   @   @   @       
+    @       @       @     
+  @           @       @   
+@       @       @       @ 
+  @   @   @   @       @   
+    @       @       @     
+  @       @   @   @   @   
+@       @       @       @ 
+  @       @           @   
+    @       @       @     
+      @   @   @   @       
+        @       @                                             */
+
+
+#include<stdio.h>
+int main()
+{
+    int n,x,y;
+    scanf("%d",&n);
+
+    if(n%2==0)
+    n=n+1;
+
+    for(y=3*n/2; y>=-3*(n/2); y--)
+    {
+        for(x=-3*(n/2); x<=3*(n/2); x++)
+        {
+            if((x>=-1*n/2 && x<=n/2) || (y>=-1*n/2 && y<=n/2))
+            {
+                if(x==y || x==-y)
+                    printf("@ ");
+                else if((y<=0 || y>=n/2) && (x+y==n-1))
+                    printf("@ ");
+                else if((y>=0 || y<=-n/2) && (x+y==1-n))
+                    printf("@ ");
+                else if((x<=0 || x>=n/2) && (x-y==n-1))
+                    printf("@ ");
+                else if((x>=0 || x<=-n/2) && (x-y==1-n))
+                    printf("@ ");
+                else
+                    printf("  ");
+            }
+            else
+            {
+                if(x+y==(n-1)*2)
+                    printf("@ ");
+                else if(x+y==(1-n)*2)
+                    printf("@ ");
+                else if(x-y==(n-1)*2)
+                    printf("@ ");
+                else if(x-y==(1-n)*2)
+                    printf("@ ");
+                else
+                    printf("  ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+            
+            
+// 133. Program for creating and displaying a linked list.
+
+#include <stdio.h>
+#include<stdlib.h>
+
+typedef struct node {
+  int data;
+  struct node *next;
+}Node;
+
+int main(void)
+{
+  Node*temp;
+  Node*start=NULL;
+  Node* p=NULL;
+  
+  int n;
+  scanf("%d",&n);
+
+  while(n--)
+  {
+     temp=(Node *)malloc(sizeof(struct node));
+    scanf("%d",&temp->data);
+    temp->next=NULL;
+    
+    if(start==NULL)
+    {
+      start=temp;
+      p=temp;
+    }
+    else
+    {  
+      p->next=temp;
+      p=temp;
+    }
+    
+  }
+  
+  while(start!=NULL)
+  {
+    if(start->next!=NULL)
+      printf("%d->",start->data);
+    else
+      printf("%d",start->data);
+
+    start=start->next;
+  }
+  return 0;
+}
+
+            
+            
+// 134. Program to delete a node for a given element from linked list.
+
+#include <stdio.h>
+#include<stdlib.h>
+
+typedef struct node {
+  int data;
+  struct node *next;
+}Node;
+
+int main(void)
+{
+  Node*temp;
+  Node*start=NULL;
+  Node* p=NULL;
+  
+  int n;
+  scanf("%d",&n);
+
+  while(n--)
+  {
+     temp=(Node *)malloc(sizeof(struct node));
+    scanf("%d",&temp->data);
+    temp->next=NULL;
+    
+    if(start==NULL)
+    {
+      start=temp;
+      p=temp;
+    } 
+     else
+    {  
+      p->next=temp;
+      p=temp;
+    }
+  }
+
+printf("Element to delete : ");
+int ele; scanf("%d",&ele); printf("%d\n",ele);
+Node*prev=start;
+Node*cur=start;
+
+while(cur!=NULL)
+{   
+  if(start->data==ele)
+  {
+    start=start->next;
+  }
+  
+  if(cur->data==ele)
+  {
+    prev->next=cur->next;
+    free(cur);
+    break;
+  }
+  prev=cur;
+  cur=cur->next;
+
+  if(cur==NULL)
+  {
+    printf("Element doesn't exist!");
+    exit(0);
+  }
+}
+  
+  while(start!=NULL)
+  {
+    if(start->next!=NULL) 
+      printf("%d->",start->data);
+    else
+      printf("%d",start->data);
+
+    start=start->next;
+  }
+
+  return 0;
+}
+
+            
+            
+// 135. Sieve of Eratosthenes : An algorithm to generate all the prime numbers within an range.
+
+#include <stdio.h>
+#define size 1000
+
+int main (void)
+{
+    int n;
+    scanf("%d",&n);
+    int arr[size]={0};
+
+    for(int i=2;i*i<=n;i++)
+    {
+        for(int j=i;i*j<=n;j++)
+        {
+            arr[i*j]=1;
+        }
+    }
+    for(int i=2;i<=n;i++)
+    {
+        if(!arr[i])
+        printf("%d ",i);
+    }
+    return 0;
+}
+
+            
+            
+// 136. Binary search using recursion
+
+#include<stdio.h>
+
+int binary(int arr[], int n, int search, int l, int u);
+
+int main()
+{
+    int arr[10], i, n, search, c, l, u;
+
+    printf("Enter the size of an array : ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter the element %d : ", i+1);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the number to be search: ");
+    scanf("%d", &search);
+
+    l = 0, u = n - 1;
+    c = binary(arr, n, search, l, u);
+
+    if (c == 0)
+        printf("Number not found.");
+    else
+        printf("Number found.");
+
+    return 0;
+}
+
+int binary(int arr[], int n, int search, int l, int u)
+{
+
+    int mid, c = 0;
+
+    if (l <= u)
+    {
+        mid = (l + u) / 2;
+        if (search == arr[mid])
+        {
+            c = 1;
+        }
+        else if (search < arr[mid])
+        {
+            return binary(arr, n, search, l, mid - 1);
+        }
+        else
+            return binary(arr, n, search, mid + 1, u);
+    }
+    else
+        return c;
+}
+
+            
+            
+// 137. Program to check whether the number is palindrome or not using recursion.
+
+#include<stdio.h>
+
+int checkPalindrome(int);
+
+int main() {
+
+    int n, sum;
+
+    printf("Enter a number : ");
+    scanf("%d",&n);
+
+    sum = checkPalindrome(n);
+
+    if(n == sum)
+         printf("%d is a palindrome", n);
+    else
+         printf("%d is not a palindrome", n);
+
+    return 0;
+}
+
+int checkPalindrome(int n) {
+
+    static int sum=0, r;
+    if(n != 0)
+    {
+         r = n % 10;
+         sum = sum * 10 + r;
+         checkPalindrome(n/10);
+    }
+    return sum;
+}
+
+            
+            
+// 138. Program to split words from a string using strtok function.
+
+#include <stdio.h>
+#include<string.h>
+int main(void) {
+  char str[]="Welcome to C language";
+  char *token=strtok(str," ");
+  while(token!=NULL)
+  {
+    printf("%s\n",token);
+    token=strtok(NULL," ");
+  }
+  return 0;
+}
+
+            
+            
+// 139. Program to read multiline string using scanf.
+
+#include<stdio.h>
+int main(void) {
+  
+  char str[100];
+  // reading multline string with '.' as a delimiter
+  scanf("%[^.]",str);
+  
+  printf("%s",str);
+  
+  return 0;
+}
+
+            
+            
+// 140. Program to find day on a particular date
+
+#include<stdio.h>
+
+int isLeapYear(int year){
+    if(year%4==0){
+        if(year%100==0 && year%400!=0){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
+    else{
+        return 0;
+    }
+}
+
+int main() {
+    int year;
+    int refYear=1600, leap=0;
+    int diff, totalDays,day,month, oddDays;
+    int lYear[]={3,1,3,2,3,2,3,3,2,3,2,3};
+        int nYear[]={3,0,3,2,3,2,3,3,2,3,2,3};
+    char  week[7][10]={"sunday",
+                   "monday",
+                   "tuesday",
+                   "wednesday"
+                   ,"thursday"
+                   ,"friday",
+                   "saturday"};
+     printf("Enter a date between  1600 to 3000\n");
+      scanf("%d%d%d",&day,&month,&year);
+    diff = year - refYear;
+    while(refYear < year){
+        if(isLeapYear(refYear))
+            leap++;
+        refYear++;
+    }
+    totalDays = leap*366 + (diff-leap)*365;
+    oddDays = totalDays%7;
+     
+    if(isLeapYear(year)){
+        for(int i=0;i<month-1;i++){
+            oddDays+=lYear[i];
+        }
+        oddDays+=day%7;
+    }
+    else{
+        for(int i=0;i<month-1;i++){
+            oddDays+=nYear[i];
+        }
+        oddDays+=day%7;
+    }
+    printf("Day on %d/%d/%d ",day,month,year);
+    printf("%s",week[(5+oddDays)%7]);
+    return 0;
+}      
+            
