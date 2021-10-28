@@ -4257,3 +4257,470 @@ int main()
   return 0; 
 }   
             
+
+            
+// 121. Binary Search
+
+#include <stdio.h>
+
+int bin(int arr[],int n,int t)
+{
+    int l=0;
+    int r=n-1;
+    while(l<=r)
+{
+     int m=l+(r-l)/2;
+    if(arr[m]<t)
+    l=m+1;
+    else if (arr[m]>t)
+    r=m-1;
+    else return m; 
+    }
+    return -1;
+}
+
+int main() 
+{
+int n;
+scanf("%d",&n);
+
+int arr[n];
+
+for(int i=0;i<n;i++)
+{
+scanf("%d",&arr[i]);
+}
+printf("%d",bin(arr,7,7));
+return 0;
+}
+
+            
+            
+// 122. Multiplication of two Matrices
+
+#include<stdio.h>
+int main()
+{
+
+    int a[5][5], b[5][5], c[5][5], m, n, p, q, i, j, k;
+
+    printf( "Enter rows and columns of first matrix: ");
+    scanf("%d%d",&m,&n);
+
+    printf("Enter rows and columns of second matrix: ");
+    scanf("%d%d",&p ,&q);
+
+    if (n == p)
+    {
+        printf("\nEnter first matrix:\n");
+           for(i = 0; i < m; ++i)
+          {for (j = 0; j < n; ++j)
+                scanf("%d",&a[i][j]);
+                }
+
+        printf("\nEnter second matrix:\n");
+        for (i = 0; i < p; ++i)
+            for (j = 0; j < q; ++j)
+                scanf("%d",&b[i][j]);
+
+        printf("\nThe new matrix is:\n");
+
+        for (i = 0; i < m; ++i)
+        {
+            for (j = 0; j < q; ++j)
+            {
+                c[i][j] = 0;
+                for (k = 0; k < n; ++k)
+                    c[i][j] = c[i][j] + (a[i][k] * b[k][j]);
+                printf("%d\t",c[i][j]);
+            }
+            printf( "\n");
+        }
+    }
+    else
+        printf("\n Matrix can't be multiplied");
+
+    return 0;
+}
+
+            
+            
+// 123. Goldbach's Conjecture
+ 
+/*Goldbach's conjecture is a rule in math that states the following: every even number greater than 2 can be expressed as the sum of two prime numbers.*/
+
+#include<stdio.h>
+#include<math.h>
+
+int prime (int n)
+{
+  int flag = 0;
+  for(int i = 2 ; i <= sqrt(n); i ++ )
+  {
+    if(n % i == 0)
+    {
+      flag = 1;
+      break ;
+    }
+  }
+  if(!flag)
+  return 1;
+  else 
+  return 0;
+}
+
+int main()
+{
+  int m;
+  scanf("%d", & m);
+  for(int i = 2 ; i <= (m )/2 ; i ++)
+  {
+    int k = i , l = m - i;
+    if(prime(k) && prime(l))
+    {
+    printf("%d  +  %d\n",k , l);
+    }
+  }
+}
+
+            
+            
+/* 124. Numerical Spiral Pattern.
+
+ 1  2  3  4 5
+16 17 18 19 6
+15 24 25 20 7
+14 23 22 21 8
+13 12 11 10 9              */
+
+#include<stdio.h>
+int main()
+{
+ int n,m,l,k=1; 
+ scanf("%d",&n);
+ m =(l=n);
+ int a[m][n] ;
+ int row = 0 , col = 0 ;
+ 
+ while(k <= l*l )
+ {
+ 
+        for(int i = col ; i < n; i ++) 
+        {
+         a[row][i] = k++;
+         
+  }
+  row++;
+  for(int i = row; i < m ; i ++)
+  {
+   a[i][n-1] =k ++;
+   
+  }
+  n --;
+  if(row < m)
+  {
+   for(int i = n - 1; i >= col ; i --)
+   { a[m-1][i] = k ++; 
+ 
+   }
+  }
+  m--;
+  if(col < n)
+  {
+   for(int i = m-1; i >= row ; i --)
+   {
+   a[i][col] = k ++;
+   }
+  }
+  col ++;
+ 
+ }
+ for(int i = 0 ; i < l ; i ++)
+ {
+  for(int j = 0 ; j < l ; j ++)
+  printf("%d ",a[i][j]);
+  printf("\n");
+ }
+}
+
+            
+            
+// 125. Program to sort array using Selection Sort.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int array[20], n, i, j, pos, temp;
+    clrscr();
+
+    printf("Enter total number of elements :");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        printf("\nEnter element number %d : ", i+1);
+        scanf("%d", &array[i]);
+    }
+
+    for (i = 0; i < (n - 1); i++)
+    {
+        pos = i; 
+        for (j = i + 1; j < n; j++)
+        {
+            if (array[pos] > array[j])
+                pos = j;
+        }
+        if (pos != i)
+        {
+            temp = array[i];
+            array[i] = array[pos];
+            array[pos] = temp;
+        }
+    }
+
+    printf("\nSorted elements :");
+
+    for (i = 0; i < n; i++)
+        printf("%d\n", array[i]);
+
+    getch();
+}
+
+            
+            
+// 126. Program to sort array using Bubble Sort.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+    int total, element[100], i, j, temp;
+    clrscr();
+
+    printf("Enter total number of elements :");
+    scanf("%d", &total);
+
+    for(i=0; i<total; i++)
+    {
+        printf("Enter element no%d :", i+1);
+        scanf("%d", &element[i]);
+    }
+    
+    for (i=0; i<(total - 1); i++)
+    {
+        for (j = 0; j < total  - 1; j++)
+        {
+            if (element[j] > element[j + 1]) 
+            {
+                temp = element[j];
+                element[j] = element[j + 1];
+                element[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("\nSorted list in ascending order :");
+
+    for (i = 0; i < total; i++)
+    {
+        printf("\n%d", element[i]);
+    } 
+    getch();
+} 
+//To sort in descending order, use < (less than) in if condition.
+
+            
+            
+// 127. Program for infix to postfix conversion.
+
+#include<stdio.h>
+char ifix[200],pfix[200],stack[100];
+int p=0,s=0,i=0;
+void fun()
+{
+    if(ifix[i]==')')
+    {
+        s--;
+        while(stack[s]!='(')
+            pfix[p++]=stack[s--];
+    }
+    if(ifix[i]=='+' || ifix[i]=='-')
+    {
+        if(!s)
+            stack[s++]=ifix[i];
+        else if(stack[s-1]=='(')
+            stack[s++]=ifix[i];
+        else
+        {
+            s--;
+            while(s!=-1 && stack[s]!='(')
+            {
+                pfix[p++]=stack[s--];
+            }
+            stack[++s]=ifix[i];
+            s++;
+        }
+    }
+}
+int main()
+{
+    printf("Enter your infix expression(using operators +, -, %%, /, *) : ");
+    scanf("%s",ifix);
+    for(i;ifix[i]!='\0';i++)
+    {
+        if(ifix[i]!='*' && ifix[i]!='/' && ifix[i]!='-' && ifix[i]!='+' && ifix[i]!='(' && ifix[i]!=')' && ifix[i]!='%')
+            pfix[p++]=ifix[i];
+        else if(ifix[i]=='(' || ifix[i]=='*' || ifix[i]=='/' || ifix[i]=='%')
+            stack[s++]=ifix[i];
+        else
+            fun();
+    }
+    if(ifix[i]=='\0')
+    {
+        if(s)
+        {
+            s--;
+            while(s!=-1)
+            {
+                if(stack[s]==')' || stack[s]=='(')
+                    s--;
+                pfix[p++]=stack[s--];
+            }
+        }
+        pfix[p]='\0';
+    }
+    printf("The postfix expression is : %s",pfix);
+    return 0;
+}
+//used by taking into considering operators +, -, /, *, %, (, )
+
+            
+            
+/* 128. Pattern
+
+1
+3 2
+4 5 6
+10 9 8 7
+11 12 13 14 15
+21 20 19 18 17 16              */
+
+#include<stdio.h>
+int main()
+ { 
+    int i,j,k,l,n;
+
+    scanf("%d",&n);
+
+     for(k=i=1;i<=n;i++) 
+    {
+        l=k+i-1; 
+        for(j=1;j<=i;j++)
+       { 
+            if(i%2==1)
+                printf("%d ",k);
+            else 
+                printf("%d ",l); 
+            k++;
+            l--;
+        }
+        printf("\n"); 
+    }
+     return 0; 
+}
+
+            
+            
+/* 129. Pattern
+
+1
+8 2
+14 9 3
+19 15 10 4
+23 20 16 11 5
+26 24 21  17 12 6
+28 27 25 22 18 13 7           */
+
+#include<stdio.h>
+int main() {
+
+int n,i,j,k,l=1,d;
+    scanf("%d",&n);
+    for(i=0;i<n;++i)
+    {
+        for(j=i-1;j>=0;--j)
+        {
+            d=n-1;
+            l=i+1;
+            for(k=0;k<=j;++k)
+            {
+                l+=d;
+                d--;
+            }
+            printf("%d ",l);
+        }
+        printf("%d\n",i+1);
+    }
+    return 0;
+}
+
+            
+            
+/* 130. Swastika pattern.
+
+*     * * * * 
+*     *       
+*     *       
+* * * * * * *
+      *     * 
+      *     * 
+* * * *     *                   */
+
+#include<stdio.h>
+int main() {
+  int n;
+  scanf("%d",&n);
+  
+  for(int i=1;i<=n;i++)
+  {
+    for(int j=1;j<=n;j++)
+    {
+    if(i==1)
+    {
+      if(j>(n/2)||j==1)
+      printf("* ");
+      else
+      printf("  ");
+    }
+    else if(i==n)
+    {
+      if(j<=(n/2+1)||j==n)
+      printf("* ");
+      else
+      printf("  ");
+    }
+    else if(i==(n+1)/2)
+     printf("* ");
+
+    else if(i<=n/2&&i!=1)
+    {
+      if(j==1||j==(n+1)/2)
+      printf("* ");
+      else
+       printf("  ");
+    }
+    else
+    {
+      if(j==n||j==(n+1)/2)
+      printf("* ");
+      else
+       printf("  ");
+    }
+    }  
+     printf("\n");
+  }
+  return 0;
+}            
