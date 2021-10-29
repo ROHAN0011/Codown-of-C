@@ -17,3 +17,65 @@
 9. Program to accept a number and check whether the number is Positive, Negative or Zero.
 
 10. Program to check whether the number is even or odd.
+
+11. Program to accept three numbers from user and print them in ascending and decending order.
+
+12. Program to find the roots of a quadratic equation.
+
+13. Program to accept rollnumber and marks of three subjects from user and print total marks, average and grade.
+
+14. Program to print numbers from 1 to n using while loop.
+
+15. Program to print numbers from n to 1 using Do While loop.
+
+16. Program to print first n even numbers.
+
+17. Program to accept a number and print that number in reverse order.
+    Ex:- 1024
+    Output:- 4201
+
+18. Program to accept a number and print sum of it’s digits.
+
+19. Program to take a number from user and check whether it is Armstrong number or not.
+
+20. Program to take number from user and print table of that number.
+
+21. Pattern 1
+
+    •
+    • •
+    • • •
+    • • • •
+    • • • • •
+    
+22. Pattern 2
+
+    • • • • •
+    • • • •
+    • • •
+    • •
+    •
+    
+23. Pattern 3
+
+         •
+        • •
+       • • •
+      • • • •
+     • • • • •    
+     
+24. Pattern 4
+
+    1
+    1 2
+    1 2 3
+    1 2 3 4
+    1 2 3 4 5    
+    
+25. Pattern 5
+
+    1
+    2 1
+    3 2 1
+    4 3 2 1
+    5 4 3 2 1    
