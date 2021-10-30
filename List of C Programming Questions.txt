@@ -313,4 +313,51 @@
      *          *
      * * * * * * * 
      
-     
+52. Program to accept number and print it's factorial.     
+
+53. Program to accept number and print if it is prime number or not.
+
+54. Program to print 'n' prime numbers.
+
+55. Program to accept a number and print Fibonacci sequence.
+
+56. Add 'n' numbers
+
+57. Add 'n' numbers using array.
+
+58. Program to accept a number and add the digits of that number.
+
+59. Program to accept a number and add the digits of that number using recursion.
+
+60. Average of numbers.
+
+61. Program to calculate Square of 'n' numbers.
+
+62. Program to take an alphabet from user and check whether it is a vowel or not.
+
+63. Program to take two numbers and check whether they are amicable numbers or not.
+
+64. Program to accept a number and print the factors of that number.
+
+65. Program to accept two integer numbers and print the GCD(Greatest Common Divisor).
+
+66. Program to find power of number.
+
+67. Program to calculate HCF & LCM.
+
+68. Program to find largest among 3 numbers using ternary operator.
+
+69. Program to find largest number of 'n' numbers.
+
+70. Program to check whether the number is neon number or not.
+
+71. Program to check Niven number (Harshad number).
+
+72. Program to check whether the number is palindrome or not.
+
+73. Program to check perfect number.
+
+74. Program to find the square root of a number.
+
+75. Program to print sum of 'n' prime numbers.
+
