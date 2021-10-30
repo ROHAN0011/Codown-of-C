@@ -380,3 +380,33 @@
 84. Program to convert Binary to Decimal.
 
 85. Program to convert Decimal numbers to Binary.
+
+86. Program to find f(x) by Lagrange's interpolation method.
+
+87. Program to check the leap year.
+
+88. Program to find nCr & nPr.
+
+89. Program for Newton Raphson General.
+
+90. Program to calculate the sum of even numbers from 1 to n.
+
+91. Simpson 1/3 rule.
+
+92. Program to add two strings without using concat() function.
+
+93. Program to check vowels in string.
+
+94. Program to compare two strings.
+
+95. Program to compare strings without using strcmp() function.
+
+96. Program to convert string from uppercase to lowercase.
+
+97. Program to copy char array / copy string.
+
+98. Program to copy string without using strcpy() function.
+
+99. Program to count frequency of characters in a string.
+
+100. Program to count total number of uppercase and lowercase in a string.
