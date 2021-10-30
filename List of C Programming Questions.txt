@@ -361,3 +361,22 @@
 
 75. Program to print sum of 'n' prime numbers.
 
+76. Program to print sum of factorial series 1/1! + 2/2! +...1/N!
+
+77. Program to calculate the sum of 'n' terms in Taylor series.
+
+78. Program to swap two numbers without using third variable.
+
+79. Program to swap two numbers using bitwise XOR.
+
+80. Program to swap two numbers using pointer.
+
+81. Program to add two numbers using pointer.
+
+82. Program to add first and last digit of a number.
+
+83. Program to find area of triangle using Heron's formula.
+
+84. Program to convert Binary to Decimal.
+
+85. Program to convert Decimal numbers to Binary.
