@@ -6,7 +6,4 @@ Here, I provided the lots of examples on C programing with solutions for your pr
 
 For any issue, bug or area of improvements/suggestions regarding this or any another repositories you can contact me on Linkedin, Twitter account. I mentioned it on my GitHub profile.
 
-https://github.com/ROHAN0011/Codown-of-C/blob/d4c35c2f930da47ee54f9beb6bfdae2250494c89/C.jpeg
-
-
-<p align= "center"><img src="https://github.com/ROHAN0011/Codown-of-C/blob/d4c35c2f930da47ee54f9beb6bfdae2250494c89/C.jpeg" width="700" height= "350"></p>
+<p align= "center"><img src="https://github.com/ROHAN0011/Codown-of-C/blob/1eeae201a22846ceaec2c6ff0bee190aa1960d94/C.jpeg" width="700" height= "350"></p>
