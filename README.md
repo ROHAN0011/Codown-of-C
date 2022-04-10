@@ -8,4 +8,4 @@ For any issue, bug or area of improvements/suggestions regarding this or any ano
 
 <p align= "center"><img src="https://github.com/ROHAN0011/Codown-of-C/blob/1eeae201a22846ceaec2c6ff0bee190aa1960d94/C.jpeg" width="500" height= "300"></p>
 
-<img align="center" alt="GIF" src="https://github.com/ROHAN0011/Codown-of-C/blob/8d000373a19704c973952855afa9f9aab8b0ea94/Execution%20of%20C.gif" width="60%" height="270"/>
+<p img align="center" alt="GIF" src="https://github.com/ROHAN0011/Codown-of-C/blob/8d000373a19704c973952855afa9f9aab8b0ea94/Execution%20of%20C.gif" width="60%" height="270"></p>
